@@ -5,7 +5,7 @@ metadata:
   name: {{ .Release.Name }}
   annotations:
     {{- range $key, $value := .Values.ingress.annotations }}
-    {{ $key }}: {{ $value | quote }}
+      {{ $key }}: {{ $value | quote }}
     {{- end }}
   ingressClassName: {{ .Values.ingress.className }}
 spec:
