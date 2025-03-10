@@ -9,4 +9,4 @@ spec:
       targetPort: {{ .Values.service.port }}
       protocol: TCP
   selector:
-    app: {{ .Release.name }}
+    app: {{ .Release.Name }}
