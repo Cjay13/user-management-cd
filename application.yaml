@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/Cjay13/user-management-cd.git
     targetRevision: HEAD
-    path: 
+    path: user-management-helm
   destination:
     server: https://kubernetes.default.svc
     namespace: user-management
