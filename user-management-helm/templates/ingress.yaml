@@ -7,8 +7,8 @@ metadata:
     {{- range $key, $value := .Values.ingress.annotations }}
     {{ $key }}: {{ $value | quote }}
     {{- end }}
-  spec:
   ingressClassName: {{ .Values.ingress.className }}
+spec:
   rules:
     {{- range .Values.ingress.hosts }}
     - host: {{ .host }}
@@ -25,3 +25,4 @@ metadata:
           {{- end }}
     {{- end }}
 {{- end }}
+
