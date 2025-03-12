@@ -59,18 +59,17 @@ service:
 ingress:
   enabled: true
   className: "nginx"
-  annotations: {}
-    # kubernetes.io/ingress.class: nginx
-    # kubernetes.io/tls-acme: "true"
+  annotations: 
+    cert-manager.io/issuer: "letsencrypt-staging"
   hosts:
     - host: a70e26125343e4c89b295e4a10c7d02c-c9ad38ee80bdddd1.elb.ap-southeast-2.amazonaws.com
       paths:
         - path: /cjayecom/v1/user
           pathType: Prefix
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+  tls:
+    - secretName: user-management-tls-secret
+      hosts:
+        - a70e26125343e4c89b295e4a10c7d02c-c9ad38ee80bdddd1.elb.ap-southeast-2.amazonaws.com
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
