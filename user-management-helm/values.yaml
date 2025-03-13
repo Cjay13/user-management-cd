@@ -60,15 +60,14 @@ ingress:
   enabled: true
   className: "nginx"
   annotations: 
-    cert-manager.io/cluster-issuer: "letsencrypt-staging"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   hosts:
     - host: www.cjaydevops.com
       paths:
         - path: /cjayecom/v1/user
           pathType: Prefix
   tls:
-    - secretName: user-management-tls-secret
-      hosts:
+    - hosts:
         - www.cjaydevops.com
 
 resources: {}
