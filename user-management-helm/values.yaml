@@ -69,6 +69,7 @@ ingress:
   tls:
     - hosts:
         - www.cjaydevops.com
+      secretName: user-management-tls
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
