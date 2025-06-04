@@ -10,6 +10,9 @@ spec:
     repoURL: https://github.com/Cjay13/user-management-cd.git
     targetRevision: HEAD
     path: user-management-helm
+    helm:
+      valueFiles:
+        - ../values-aws.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: user-management

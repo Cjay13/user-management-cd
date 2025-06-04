@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: user-management
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/Cjay13/user-management-cd.git
+    targetRevision: HEAD
+    path: user-management-helm
+    helm:
+      valueFiles:
+        - ../values-azure.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: user-management
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: True
