@@ -13,6 +13,7 @@ spec:
     metadata:
       labels:
         app: {{ .Release.Name }}
+        azure.workload.identity/use: true
     spec:
       serviceAccountName: {{ .Values.serviceAccount.name }}
       containers:
@@ -21,3 +22,4 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port }}
+
